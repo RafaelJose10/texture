@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> osso.html </title>
+    <style></style>
+    <script src="three.js-master/build/three.js"></script>
+</head>
+
+<body>
+    <script>
+        var scene, camera, renderer,
+            geometry, material, cube;
+
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
+        renderer = new THREE.WebGLRenderer();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        window.document.body.appendChild(renderer.domElement);
+
+        geometry = new THREE.BoxGeometry(1, 1, 1);
+
+        var cubeMaterials = [
+            new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load('foto/grama.png'),
+                side: THREE.DoubleSide
+            }),
+            new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load('foto/grama.png'),
+                side: THREE.DoubleSide
+            }),
+            new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load('foto/grama.png'),
+                side: THREE.DoubleSide
+            }),
+
+            new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load('foto/grama.png'),
+                side: THREE.DoubleSide
+            }),
+            new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load('foto/grama.png'),
+                side: THREE.DoubleSide
+            }),
+            new THREE.MeshBasicMaterial({
+                map: new THREE.TextureLoader().load('foto/grama.png'),
+                side: THREE.DoubleSide
+            }),
+        ]
+
+
+        material = new THREE.MeshBasicMaterial(cubeMaterials);
+
+        cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
+
+        camera.position.set(0, 0, 3);
+
+        renderer.render(scene, camera);
+    </script>
+</body>
+
+</html>
